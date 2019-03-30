@@ -14,7 +14,7 @@ const addOnSchema = new Schema({
   expiry: Date,
   amount: Number,
   name: String,
-  price: Number,
+  price: String,
 });
 
 const AddOn = mongoose.model('AddOn', addOnSchema);
