@@ -1,5 +1,44 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1  🔥🔥🔥🔥🔥 So Hot Self Care Web App 🔥🔥🔥🔥🔥
+  img(src='images/circleslife.jpg')
+
+  h2 Welcome, #{user.name} (+65 #{user.number})!
+
+  h2 My Data
+  p ( #{user.data.usage} GB / #{user.data.currentQuota} GB )
+
+  h2 Talktime
+  p ( #{user.talktime.usage} mins / #{user.talktime.currentQuota} mins )
+
+  h2 SMS
+  p ( #{user.sms.usage} sms / #{user.sms.currentQuota} sms )
+
+  p
+    a(href="/add/1/123") Add 1GB
+
+  p
+    a(href="/add/2/123") Add 2GB
+
+  p
+    a(href="/add/3/123") Add 3GB
+
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+
+  h5 Debug Info
+  p= user

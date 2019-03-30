@@ -5,12 +5,25 @@ const AddOn = require('../models/AddOn');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  User.findOne({ number: '123' })
+    .populate('addOns')
+    .then((user) => {
+      console.log(user);
+      res.render('index', { user });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.json({ success: false, message: 'Error' });
+    });
+});
+
 router.get('/info/:phoneNumber', (req, res) => {
   User.findOne({ number: req.params.phoneNumber })
     .populate('addOns')
     .then((user) => {
       console.log(user);
-      res.json({ success: true, user });
+      res.redirect('/');
     })
     .catch((err) => {
       console.error(err);
@@ -33,7 +46,7 @@ router.get('/add/:addOn/:phoneNumber', (req, res) => {
       .populate('addOns')
       .then((user) => {
         console.log(user);
-        res.json({ success: true, user });
+        res.redirect('/');
       }))
     .catch((err) => {
       console.error(err);
@@ -94,7 +107,8 @@ router.post('/debug/addAddon/:amount', (req, res) => {
     amount: req.params.amount,
     name: `Add ${req.params.amount}GB`,
     price: `$${req.params.amount}`,
-  }).save()
+  })
+    .save()
     .then(() => User.findOne({ number: '123' })
       .populate('addOns')
       .then((user) => {
