@@ -7,14 +7,17 @@ const userSchema = new Schema({
   number: String,
   data: {
     base: Number,
+    currentQuota: Number,
     usage: Number,
   },
   sms: {
     base: Number,
+    currentQuota: Number,
     usage: Number,
   },
   talktime: {
     base: Number,
+    currentQuota: Number,
     usage: Number,
   },
   addOns: [
